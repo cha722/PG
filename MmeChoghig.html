@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci à Mme Choghig Der Ghoukassian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f9f7ff, #fff7f9);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff9aa2, #ffb7b2, #ffdac1, #e2f0cb, #b5ead7);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #e67a9e;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin: 0 auto;
+            color: #666;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+        
+        .teacher-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+            border: 2px solid rgba(230, 122, 158, 0.2);
+            margin-bottom: 40px;
+            max-width: 550px;
+            margin: 0 auto 40px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 15px 35px rgba(230, 122, 158, 0.2);
+            border-color: rgba(230, 122, 158, 0.4);
+        }
+        
+        .card-header {
+            padding: 40px 25px 30px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 250, 250, 0.95));
+        }
+        
+        .teacher-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #e67a9e;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .subject {
+            font-size: 1.4rem;
+            color: #a68fb7;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .card-footer {
+            padding: 25px;
+            background: rgba(230, 122, 158, 0.08);
+            border-top: 2px solid rgba(230, 122, 158, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(to right, #e67a9e, #ff9aa2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(230, 122, 158, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(230, 122, 158, 0.4);
+        }
+        
+        .teacher-page {
+            display: none;
+            padding: 30px 0;
+        }
+        
+        .message-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid rgba(230, 122, 158, 0.2);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .teacher-page h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.0rem;
+            color: #e67a9e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .teacher-subject {
+            font-size: 1.5rem;
+            color: #a68fb7;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .message {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.4rem;
+            text-align: center;
+            padding: 40px;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            position: relative;
+            border: 2px dashed rgba(230, 122, 158, 0.3);
+            transform: rotate(1deg);
+            background-image: linear-gradient(rgba(255, 250, 250, 0.9), rgba(255, 250, 250, 0.9)), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,30 Q40,15 50,30 T80,30 Q85,40 70,50 T80,70 Q70,85 50,70 T20,70 Q15,60 30,50 T20,30 Z" fill="none" stroke="%23e67a9e" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-size: 200px;
+        }
+        
+        .message-content {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .creative-offer {
+            background: linear-gradient(to right, rgba(255, 218, 193, 0.2), rgba(229, 240, 203, 0.2));
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 2px solid rgba(181, 234, 215, 0.5);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            position: relative;
+            transform: rotate(-1deg);
+        }
+        
+        .creative-offer::before, .creative-offer::after {
+            content: """;
+            position: absolute;
+            font-size: 6rem;
+            color: rgba(230, 122, 158, 0.2);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .creative-offer::before {
+            top: -20px;
+            left: 10px;
+        }
+        
+        .creative-offer::after {
+            bottom: -60px;
+            right: 10px;
+            transform: rotate(180deg);
+        }
+        
+        .btn-back {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(to right, #e67a9e, #ff9aa2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(230, 122, 158, 0.3);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-back::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-back:hover::before {
+            left: 100%;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(230, 122, 158, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1rem;
+            color: #a68fb7;
+            margin-top: 40px;
+            font-style: italic;
+        }
+        
+        .page-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #e67a9e;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .art-decoration {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        
+        .paint-splash {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(5px);
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .brush-stroke {
+            position: absolute;
+            height: 20px;
+            border-radius: 10px;
+            transform-origin: left center;
+            transform: rotate(var(--rotation));
+            filter: blur(2px);
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .palette-icon {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: conic-gradient(
+                #ff9aa2 0deg 60deg,
+                #ffb7b2 60deg 120deg,
+                #ffdac1 120deg 180deg,
+                #e2f0cb 180deg 240deg,
+                #b5ead7 240deg 300deg,
+                #c7ceea 300deg 360deg
+            );
+            border-radius: 50%;
+            margin: 30px 0;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 5px solid white;
+        }
+        
+        .palette-icon::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: #8a6d8b;
+            border-radius: 50%;
+        }
+        
+        .palette-icon::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            width: 60px;
+            height: 10px;
+            background: #8a6d8b;
+            border-radius: 5px;
+            transform: rotate(30deg);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .message-container {
+                padding: 30px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 2.5rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+                padding: 30px;
+                line-height: 1.7;
+            }
+            
+            .btn, .btn-back {
+                padding: 12px 35px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .intro {
+                font-size: 1.1rem;
+            }
+            
+            .message-container {
+                padding: 20px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 2.0rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                padding: 20px;
+                line-height: 1.6;
+            }
+            
+            .teacher-name {
+                font-size: 2.0rem;
+            }
+            
+            .subject {
+                font-size: 1.2rem;
+            }
+            
+            .btn, .btn-back {
+                padding: 10px 30px;
+                font-size: 1.0rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Décorations artistiques -->
+    <div class="paint-splash" style="top: 10%; left: 5%; width: 150px; height: 150px; background: #ff9aa2;"></div>
+    <div class="paint-splash" style="top: 15%; right: 10%; width: 120px; height: 120px; background: #b5ead7;"></div>
+    <div class="paint-splash" style="bottom: 15%; left: 10%; width: 180px; height: 180px; background: #ffdac1;"></div>
+    <div class="brush-stroke" style="top: 30%; left: 15%; width: 200px; background: #e2f0cb; --rotation: 45deg;"></div>
+    <div class="brush-stroke" style="bottom: 25%; right: 15%; width: 250px; background: #c7ceea; --rotation: -30deg;"></div>
+    
+    <div class="container">
+        <!-- Page d'accueil -->
+        <div id="home-page">
+            <header>
+                <h1>Merci à mes professeurs</h1>
+                <p class="intro">En ce dernier jour d'école, j'ai voulu prendre un moment pour exprimer ma gratitude à chacun de mes professeurs pour cette année riche en créativité et en découvertes.</p>
+            </header>
+            
+            <main>
+                <div class="teacher-card">
+                    <div class="card-header">
+                        <div class="teacher-name">Mme Choghig Der Ghoukassian</div>
+                        <div class="subject">Arts plastiques</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn" onclick="showTeacherPage()">Voir le message</a>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>Merci pour cette année artistique pleine de couleurs et d'inspiration</p>
+                <p>Année scolaire 2023-2024</p>
+            </footer>
+        </div>
+        
+        <!-- Page de Mme Choghig Der Ghoukassian -->
+        <div id="teacher-page" class="teacher-page">
+            <div class="page-title">Message artistique</div>
+            <div class="message-container">
+                <div class="palette-icon"></div>
+                <h2>Mme Choghig Der Ghoukassian</h2>
+                <div class="teacher-subject">Arts plastiques</div>
+                
+                <div class="message">
+                    <div class="message-content">
+                        <p>Bonjour Mme Choghig,</p>
+                        <p>J'espère que vous allez bien. Je tenais à vous remercier du fond du cœur pour cette belle année d'arts plastiques.</p>
+                        <p>J'ai adoré les projets créatifs que nous avons réalisés et j'ai particulièrement apprécié apprendre à m'exprimer à travers différentes formes d'art.</p>
+                        <p>Votre passion et votre énergie ont rendu chaque cours inspirant et mémorable.</p>
+                    </div>
+                    
+                    <div class="creative-offer">
+                        <p>Si jamais vous avez besoin d'une toile numérique, d'une création graphique ou d'un site web pour un projet artistique,</p>
+                        <p>je serais honoré de mettre mes compétences en création numérique à votre service.</p>
+                    </div>
+                </div>
+                
+                <button class="btn-back" onclick="showHomePage()">Retour à l'accueil</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Fonction pour afficher la page du professeur
+        function showTeacherPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('teacher-page').style.display = 'block';
+        }
+        
+        // Fonction pour revenir à l'accueil
+        function showHomePage() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('teacher-page').style.display = 'none';
+        }
+        
+        // Animation des décorations
+        const splashes = document.querySelectorAll('.paint-splash');
+        splashes.forEach(splash => {
+            splash.style.animation = `pulse 8s infinite alternate`;
+        });
+        
+        const brushStrokes = document.querySelectorAll('.brush-stroke');
+        brushStrokes.forEach(stroke => {
+            stroke.style.animation = `float 12s infinite alternate`;
+        });
+        
+        // Ajout des animations CSS dynamiquement
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 0.2; }
+                100% { transform: scale(1.1); opacity: 0.3; }
+            }
+            
+            @keyframes float {
+                0% { transform: rotate(var(--rotation)) translateY(0); }
+                100% { transform: rotate(var(--rotation)) translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Script de sécurité
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+            if (e.keyCode == 123 ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) ||
+                (e.ctrlKey && e.key === 'U')) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
