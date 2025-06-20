@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci à Mme Traboulsi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            min-height: 100vh;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(94, 234, 212, 0.2);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #5eead4, #0ea5e9);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            color: #5eead4;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(94, 234, 212, 0.3);
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin: 0 auto;
+            color: #cbd5e1;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .teacher-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(94, 234, 212, 0.2);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(94, 234, 212, 0.25);
+            border-color: rgba(94, 234, 212, 0.4);
+        }
+        
+        .card-header {
+            padding: 35px 20px 25px;
+        }
+        
+        .teacher-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #5eead4;
+            font-weight: 600;
+        }
+        
+        .subject {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .card-footer {
+            padding: 20px;
+            background: rgba(94, 234, 212, 0.1);
+            border-top: 1px solid rgba(94, 234, 212, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(to right, #0ea5e9, #5eead4);
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Source Code Pro', monospace;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(14, 165, 233, 0.4);
+        }
+        
+        .teacher-page {
+            display: none;
+            padding: 30px 0;
+        }
+        
+        .message-container {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(94, 234, 212, 0.2);
+        }
+        
+        .teacher-page h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #5eead4;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .teacher-subject {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .message {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            text-align: left;
+            padding: 30px;
+            line-height: 1.8;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 1px solid rgba(94, 234, 212, 0.2);
+        }
+        
+        .message-content {
+            margin-bottom: 20px;
+        }
+        
+        .offer {
+            background: rgba(94, 234, 212, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            border-left: 3px solid #5eead4;
+            text-align: left;
+            font-family: 'Source Code Pro', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer::before {
+            content: ">";
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            color: #5eead4;
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+        }
+        
+        .offer-content {
+            padding-left: 25px;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            padding: 12px 35px;
+            background: linear-gradient(to right, #0ea5e9, #5eead4);
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Source Code Pro', monospace;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(14, 165, 233, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 30px;
+        }
+        
+        .page-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #5eead4;
+            text-align: center;
+            margin-bottom: 25px;
+            padding-top: 15px;
+        }
+        
+        .code-decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.05;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .code-line {
+            font-family: 'Source Code Pro', monospace;
+            color: #5eead4;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            position: absolute;
+            animation: scrollCode 40s linear infinite;
+        }
+        
+        @keyframes scrollCode {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100%); }
+        }
+        
+        .code-icon {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: rgba(94, 234, 212, 0.1);
+            border-radius: 50%;
+            margin: 20px 0;
+            position: relative;
+            border: 2px solid rgba(94, 234, 212, 0.3);
+        }
+        
+        .code-icon::before {
+            content: "</>";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Source Code Pro', monospace;
+            font-size: 2rem;
+            color: #5eead4;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .message-container {
+                padding: 30px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 2.0rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                padding: 20px;
+                line-height: 1.7;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.0rem;
+            }
+            
+            .intro {
+                font-size: 1.1rem;
+            }
+            
+            .message-container {
+                padding: 20px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 1.8rem;
+            }
+            
+            .message {
+                font-size: 1.0rem;
+                padding: 15px;
+                line-height: 1.6;
+            }
+            
+            .btn, .btn-back {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Décorations de code en arrière-plan -->
+    <div class="code-decoration" id="code-decoration"></div>
+    
+    <div class="container">
+        <!-- Page d'accueil -->
+        <div id="home-page">
+            <header>
+                <h1>Merci à mes professeurs</h1>
+                <p class="intro">En ce dernier jour d'école, j'ai voulu prendre un moment pour exprimer ma gratitude à chacun de mes professeurs.</p>
+            </header>
+            
+            <main>
+                <div class="teacher-card">
+                    <div class="card-header">
+                        <div class="teacher-name">Mme Traboulsi</div>
+                        <div class="subject">Mathématiques & Programmation</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn" onclick="showTeacherPage()">Lire le message</a>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>Merci pour cette année d'apprentissage exceptionnelle</p>
+                <p>Année scolaire 2023-2024</p>
+            </footer>
+        </div>
+        
+        <!-- Page de Mme Traboulsi -->
+        <div id="teacher-page" class="teacher-page">
+            <div class="page-title">Message personnel</div>
+            <div class="message-container">
+                <div class="code-icon"></div>
+                <h2>Mme Traboulsi</h2>
+                <div class="teacher-subject">Mathématiques & Programmation</div>
+                
+                <div class="message">
+                    <div class="message-content">
+                        <p>Bonjour Mme Traboulsi,</p>
+                        <p>J'espère que vous allez bien. Je tenais à vous remercier sincèrement pour cette année extraordinaire.</p>
+                        <p>Grâce à vous, j'ai non seulement progressé en programmation, mais j'ai aussi développé une véritable passion pour ce domaine.</p>
+                        <p>Les succès de notre classe, notamment notre victoire à la Nuit du Code, sont un témoignage de votre excellent enseignement.</p>
+                    </div>
+                    
+                    <div class="offer">
+                        <div class="offer-content">
+                            <p>// Disponible pour des projets de programmation</p>
+                            <p>if (vous.avezUnProjet() || vous.avezUnProblème()) {</p>
+                            <p style="padding-left: 20px;">moi.disponible = true;</p>
+                            <p style="padding-left: 20px;">moi.aider(vous);</p>
+                            <p>}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-back" onclick="showHomePage()">Retour à l'accueil</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Fonction pour afficher la page du professeur
+        function showTeacherPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('teacher-page').style.display = 'block';
+        }
+        
+        // Fonction pour revenir à l'accueil
+        function showHomePage() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('teacher-page').style.display = 'none';
+        }
+        
+        // Générer des lignes de code décoratives
+        const codeDecoration = document.getElementById('code-decoration');
+        const codeLines = [
+            'function merci() {',
+            '  console.log("Merci pour tout !");',
+            '}',
+            'const appreciation = true;',
+            'let connaissances = 0;',
+            'while(appreciation) {',
+            '  connaissances++;',
+            '}',
+            'class Enseignement {',
+            '  constructor(sujet, qualite) {',
+            '    this.sujet = sujet;',
+            '    this.qualite = qualite;',
+            '  }',
+            '}',
+            'const maths = new Enseignement("Mathématiques", "excellent");',
+            'const programmation = new Enseignement("Programmation", "exceptionnel");',
+            '// Merci pour cette année incroyable',
+            'def calculate_gratitude():',
+            '    return "infini"',
+            'gratitude = calculate_gratitude()',
+            'print(gratitude)',
+            '<!-- Votre enseignement restera gravé -->',
+            '<?php echo "Un immense merci !"; ?>',
+            'func nuitDuCode() -> String {',
+            '    return "Victoire!"',
+            '}',
+            'let remerciement = "profonde gratitude";'
+        ];
+        
+        for (let i = 0; i < 30; i++) {
+            const line = document.createElement('div');
+            line.classList.add('code-line');
+            line.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+            line.style.left = `${Math.random() * 100}%`;
+            line.style.animationDelay = `${Math.random() * 20}s`;
+            line.style.animationDuration = `${30 + Math.random() * 30}s`;
+            codeDecoration.appendChild(line);
+        }
+        
+        // Script de sécurité
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+            if (e.keyCode == 123 ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) ||
+                (e.ctrlKey && e.key === 'U')) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
