@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci à Mme Gharib</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f0fff5, #f5fff0);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #4a8a5a, #7aaa7a);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #4a8a5a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin: 0 auto;
+            color: #555;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .teacher-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+        
+        .card-header {
+            padding: 35px 20px 25px;
+        }
+        
+        .teacher-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #4a8a5a;
+            font-weight: 600;
+        }
+        
+        .subject {
+            font-size: 1.2rem;
+            color: #7a7a9a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .card-footer {
+            padding: 20px;
+            background: rgba(74, 138, 90, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #4a8a5a;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #3a7a4a;
+            transform: translateY(-2px);
+        }
+        
+        .teacher-page {
+            display: none;
+            padding: 30px 0;
+        }
+        
+        .message-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .teacher-page h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #4a8a5a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .teacher-subject {
+            font-size: 1.2rem;
+            color: #7a7a9a;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .message {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            text-align: left;
+            padding: 25px;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            position: relative;
+            border: 1px solid rgba(74, 138, 90, 0.2);
+        }
+        
+        .message-content {
+            margin-bottom: 15px;
+        }
+        
+        .offer {
+            font-size: 1.2rem;
+            padding: 15px;
+            background: rgba(74, 138, 90, 0.08);
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 2px solid #4a8a5a;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #4a8a5a;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-back:hover {
+            background: #3a7a4a;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            font-size: 1rem;
+            color: #7a7a9a;
+            margin-top: 30px;
+        }
+        
+        .page-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.0rem;
+            color: #4a8a5a;
+            text-align: center;
+            margin-bottom: 25px;
+            padding-top: 15px;
+        }
+        
+        .leaf-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%234a8a5a' fill-opacity='0.2' d='M50,20 C65,15 80,25 85,40 C90,55 85,70 75,80 C65,90 50,95 35,90 C20,85 10,75 5,60 C0,45 5,30 15,20 C25,10 40,5 50,10 Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: -1;
+        }
+        
+        .leaf-decoration:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            transform: rotate(-20deg);
+        }
+        
+        .leaf-decoration:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            transform: rotate(25deg);
+        }
+        
+        .leaf-decoration:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            transform: rotate(15deg);
+        }
+        
+        .leaf-decoration:nth-child(4) {
+            bottom: 25%;
+            right: 20%;
+            transform: rotate(-15deg);
+        }
+        
+        .microscope-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a8a5a' opacity='0.7'%3E%3Cpath d='M9.46,6.28L11.05,9C8.47,9.26 6.5,11.41 6.5,14A5,5 0 0,0 11.5,19C13.55,19 15.31,17.77 16.08,16H13.5V14H21.5V16H19.25C18.84,17.57 17.97,18.96 16.79,20H19.5V22H3.5V20H6.21C4.55,18.53 3.5,16.39 3.5,14C3.5,10.37 5.96,7.2 9.46,6.28M12.5,16A2,2 0 0,1 10.5,14A2,2 0 0,1 12.5,12A2,2 0 0,1 14.5,14A2,2 0 0,1 12.5,16Z'/%3E%3C/svg%3E") center center no-repeat;
+            background-size: contain;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .message-container {
+                padding: 30px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 1.8rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                padding: 20px;
+                line-height: 1.7;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.0rem;
+            }
+            
+            .intro {
+                font-size: 1.1rem;
+            }
+            
+            .message-container {
+                padding: 20px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 1.6rem;
+            }
+            
+            .message {
+                font-size: 1.0rem;
+                padding: 15px;
+                line-height: 1.6;
+            }
+            
+            .offer {
+                font-size: 1.0rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Décoration de fond -->
+        <div class="leaf-decoration"></div>
+        <div class="leaf-decoration"></div>
+        <div class="leaf-decoration"></div>
+        <div class="leaf-decoration"></div>
+        
+        <!-- Page d'accueil -->
+        <div id="home-page">
+            <header>
+                <h1>Merci à mes professeurs</h1>
+                <p class="intro">En ce dernier jour d'école, j'ai voulu prendre un moment pour écrire un petit mot à chacun de mes professeurs afin de vous remercier pour cette belle année.</p>
+            </header>
+            
+            <main>
+                <div class="teacher-card">
+                    <div class="card-header">
+                        <div class="teacher-name">Mme Gharib</div>
+                        <div class="subject">Sciences de la Vie et de la Terre</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn" onclick="showTeacherPage()">Lire le message</a>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>Merci pour cette année scolaire remplie d'apprentissage et de découvertes</p>
+                <p>Année scolaire 2024-2025</p>
+            </footer>
+        </div>
+        
+        <!-- Page de Mme Gharib -->
+        <div id="teacher-page" class="teacher-page">
+            <div class="page-title">Message personnel</div>
+            <div class="message-container">
+                <h2>Mme Gharib</h2>
+                <div class="teacher-subject">Sciences de la Vie et de la Terre</div>
+                
+                <div class="message">
+                    <div class="message-content">
+                        <p>Bonjour Mme Gharib,</p>
+                        <p>J'espère que vous allez bien. Je tenais à vous remercier sincèrement pour cette année passionnante.</p>
+                        <p>Vos cours étaient toujours intéressants et agréables à suivre, et j'ai énormément appris grâce à vous.</p>
+                    </div>
+                    
+                    <div class="offer">
+                        <div class="microscope-icon"></div>
+                        <p>Je voulais aussi vous dire que je suis toujours disponible si vous avez besoin d'aide pour créer un site web pour un projet scientifique ou autre.</p>
+                        <p>N'hésitez pas à me le demander directement, ce sera un plaisir de vous aider !</p>
+                    </div>
+                </div>
+                
+                <button class="btn-back" onclick="showHomePage()">Retour à l'accueil</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTeacherPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('teacher-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #e0f0e5, #e5f0e0)';
+        }
+        
+        function showHomePage() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('teacher-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(135deg, #f0fff5, #f5fff0)';
+        }
+        
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+            if (e.keyCode == 123 ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) ||
+                (e.ctrlKey && e.key === 'U')) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
