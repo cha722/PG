@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شكراً لمدام بوجي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(135deg, #f8f0e6, #e6f0ff);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to left, #4a7a5a, #7a9a7a);
+        }
+        
+        h1 {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 3.5rem;
+            color: #4a7a5a;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            font-size: 1.3rem;
+            margin: 0 auto;
+            color: #555;
+            max-width: 600px;
+        }
+        
+        .teacher-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 40px 20px 30px;
+        }
+        
+        .teacher-name {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #4a7a5a;
+        }
+        
+        .subject {
+            font-size: 1.4rem;
+            color: #7a7a9a;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .card-footer {
+            padding: 25px;
+            background: rgba(74, 122, 90, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #4a7a5a;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'El Messiri', sans-serif;
+        }
+        
+        .btn:hover {
+            background: #3a6a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(74, 122, 90, 0.2);
+        }
+        
+        .teacher-page {
+            display: block;
+            padding: 40px 0;
+        }
+        
+        .message-container {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        
+        .teacher-page h2 {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 2.8rem;
+            color: #4a7a5a;
+            margin-bottom: 10px;
+        }
+        
+        .teacher-subject {
+            font-size: 1.4rem;
+            color: #7a7a9a;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .message {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            padding: 30px;
+            line-height: 2.5;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            border-top: 4px solid #4a7a5a;
+            border-bottom: 4px solid #4a7a5a;
+        }
+        
+        .message p {
+            margin-bottom: 20px;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #4a7a5a;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'El Messiri', sans-serif;
+        }
+        
+        .btn-back:hover {
+            background: #3a6a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(74, 122, 90, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1rem;
+            color: #7a7a9a;
+            margin-top: 20px;
+        }
+        
+        .page-title {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 2.5rem;
+            color: #4a7a5a;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .arabesque-decoration {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%234a7a5a' stroke-width='2' d='M20,50 Q35,30 50,50 T80,50' opacity='0.3'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .arabesque-decoration:nth-child(1) {
+            top: 15%;
+            left: 10%;
+        }
+        
+        .arabesque-decoration:nth-child(2) {
+            top: 25%;
+            right: 10%;
+            transform: scaleX(-1);
+        }
+        
+        .arabesque-decoration:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            transform: rotate(45deg);
+        }
+        
+        .teacher-name-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 3.0rem;
+            color: #4a7a5a;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .salutation {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: #4a7a5a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .message-container {
+                padding: 30px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 2.3rem;
+            }
+            
+            .message {
+                font-size: 1.5rem;
+                padding: 20px;
+                line-height: 2.0;
+            }
+            
+            .teacher-name-arabic {
+                font-size: 2.5rem;
+            }
+            
+            .salutation {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .intro {
+                font-size: 1.1rem;
+            }
+            
+            .message-container {
+                padding: 20px;
+            }
+            
+            .teacher-page h2 {
+                font-size: 2rem;
+            }
+            
+            .message {
+                font-size: 1.3rem;
+                padding: 20px 15px;
+                line-height: 1.8;
+            }
+            
+            .teacher-name-arabic {
+                font-size: 2.0rem;
+            }
+            
+            .salutation {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Décoration de fond -->
+        <div class="arabesque-decoration"></div>
+        <div class="arabesque-decoration"></div>
+        <div class="arabesque-decoration"></div>
+        
+        <!-- Page d'accueil -->
+        <div id="home-page" style="display: none;">
+            <header>
+                <h1>شكراً لمعلماتي</h1>
+                <p class="intro">في هذا اليوم الأخير من المدرسة، أردت أن أتوقف لحظة لأكتب كلمة صغيرة لكل معلمتي لأشكركن على هذه السنة الجميلة.</p>
+            </header>
+            
+            <main>
+                <div class="teacher-card" onclick="showTeacherPage()">
+                    <div class="card-header">
+                        <div class="teacher-name">مدام بوجي</div>
+                        <div class="subject">التاريخ والجغرافيا (باللغة العربية)</div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn">قراءة الرسالة</a>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>شكراً لهذه السنة الدراسية الجميلة المليئة بالتعلم والاكتشافات</p>
+                <p>العام الدراسي 2023-2024</p>
+            </footer>
+        </div>
+        
+        <!-- Page de مدام بوجي -->
+        <div id="teacher-page" class="teacher-page">
+            <div class="page-title">رسالة شخصية</div>
+            <div class="message-container">
+                <div class="teacher-name-arabic">مدام بوجي</div>
+                <div class="teacher-subject">التاريخ والجغرافيا (باللغة العربية)</div>
+                
+                <div class="salutation">صباح الخير مدام بوجي</div>
+                
+                <div class="message">
+                    <p>أتمنى أن تكوني بخير.</p>
+                    <p>أردت فقط أن أشكركِ على دروسك الممتعة والمفيدة في التاريخ والجغرافيا باللغة العربية.</p>
+                    <p>لقد تعلمت الكثير هذا العام، وأنا ممتن لكِ.</p>
+                </div>
+                
+                <button class="btn-back" onclick="showHomePage()">العودة إلى الصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTeacherPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('teacher-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #f0e6f8, #e6f0ff)';
+        }
+        
+        function showHomePage() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('teacher-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(135deg, #f8f0e6, #e6f0ff)';
+        }
+        
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+            if (e.keyCode == 123 ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) ||
+                (e.ctrlKey && e.key === 'U')) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
